@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tab切换-常规</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        .box{
+            width: 350px;
+            height: auto;
+            margin:100px auto 0;
+            border: 2px solid #206F96;
+        }
+        .menu{
+            height: 40px;
+            background: #ccc;
+            border-top:0;
+            overflow:hidden;
+        }
+        .menu a{
+            display: inline-block;
+            height: 100%;
+            padding: 0 10px;
+            background: orange;
+        }
+        .menu a:hover,
+        .menu a.act{
+            cursor: pointer;
+            background:#fff;
+        }
+        .panel {
+            height: 200px;
+            overflow:hidden;
+        }
+        .panel div{
+            display: none;
+            text-overflow: ellipsis;
+            overflow-wrap: break-word;
+        }
+        div.active{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+ 
+    <div class="box">
+        <div class="menu">
+            <a class="act">tab11</a> 
+            <a>tab22</a> 
+            <a class="none">tab33</a> 
+        </div>
+        <div class="panel">
+            <div class="active">
+                tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11tab11
+            </div>
+            <div>
+              tab22tab22tab22tab22tab22tab22tab22tab22tab22tab22tab22tab22
+            </div>
+            <div>
+               tab33tab33tab33tab33tab33tab33tab33tab33tab33tab33tab33tab33
+               33tab33tab33tab33tab33tab33tab33
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- 引用了远程的 jquery 资源库 -->
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.menu a').mouseover(function(){
+            // 鼠标移上的时候我们需要取出当前 a 按钮的编号
+            var index = $(this).index();
+
+            $(this).addClass('act').siblings().removeClass('act');
+
+            //$('.panel div:eq('+index+')').addClass('active').siblings().removeClass('active');
+            $('.panel div').eq(index).addClass('active').siblings().removeClass('active');
+
+            // switch (index) {
+   //          case 0:
+   //              $('.a').show();
+   //              $('.b,.c,.d,').hide();
+   //              break;
+   //          case 1:
+   //              $('.b').show();
+   //              $('.a,.c,.d').hide();
+   //              break;
+   //          case 2:
+   //              $('.c').show();
+   //              $('.a, .b, .d').hide();
+   //              break;
+   //          case 3:
+   //              $('.d').show();
+   //              $('.a,.b,.c').hide();
+   //              break;
+   //          }
+   //          switch 语句也可以实现
+        });
+    });
+</script>
+
+
+
+

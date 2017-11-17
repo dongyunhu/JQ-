@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>tab切换-each</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+     *{ margin: 0; padding:0; }
+
+    .box{width:500px; height: 300px; margin: 100px; border: 1px solid #ddd;}
+
+    .tab-a {
+        width: 50px;
+        display: inline-block;
+        padding: 5px 0;
+        margin: 0 15px;
+        border-bottom: 3px solid transparent;
+        color: #343;
+        text-align: center;
+        font-size: 14px;
+
+    }
+    .tab .active {
+        border-bottom-color: #019EE4;
+        color: #019EE4;
+    }
+    .panel {
+        border: 1px solid #ddd;
+        padding: 15px;
+    }
+    .panel div {
+        display: none;
+    }
+    .panel .active {
+        font-size: 30px;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+    <div class="box">
+        <!-- HTML代码： -->
+        <div id="tab" class="tab">
+            <a href="javascript:" class="tab-a active">图片1</a>
+            <a href="javascript:" class="tab-a">图片2</a>
+            <a href="javascript:" class="tab-a">图片3</a>
+        </div>
+        <div id="panel" class="panel">
+            <div class="active"><img src="mm1.jpg">11111</div>
+            <div><img src="mm1.jpg" >2222</div>
+            <div><img src="mm1.jpg" >33333</div>       
+        </div>
+
+    </div>
+</body>
+</html>
+<!--  引用外部链接  -->
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    // JS代码：
+    $(function(){
+
+            var elAs = $('#tab a'), elImgs = $('#panel div');
+
+            // 选项卡点击行为
+            elAs.each(function(index) {
+                $(this).data('index', index).click(function() {
+                    var target = elImgs.eq($(this).data('index'));    
+                    // 选项卡UI
+                    $(this).addClass('active').siblings('a').removeClass('active');
+                    // 面板显隐
+                    target.addClass('active').siblings('div').removeClass('active');    
+                });    
+            });
+                
+            // 本demo的最重点，hover行为预加载图片
+            // elAs.on({
+            //     mouseenter: function() {
+            //         var target;    
+            //         if (!this.preloaded) {
+            //             target = elImgs.eq($(this).data('index'));
+            //             // 图片地址换成真实地址
+            //             target.attr('src', target.attr('data-src')).removeAttr('data-src');
+            //             // 标记已加载
+            //             this.preloaded = true;
+            //         }
+            //     }    
+            // });
+    });
+
+</script>
