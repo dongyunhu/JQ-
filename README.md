@@ -1,24 +1,24 @@
 ___1. 返回顶部按钮___
 
     你可以利用 animate 和 scrollTop 来实现返回顶部的动画，而不需要使用其他插件。
-   <!-- Create an anchor tag -->
-    <button class="top">Back to top</button>
-    改变 scrollTop 的值可以调整返回距离顶部的距离，而 animate 的第二个参数是执行返回动作需要的时间(单位：毫秒)。
     
-   $(document).scroll(function () {
-        var top = $(document).scrollTop();
-        if ( top > 200) {
-            $(".top").fadeIn(200);
-        } else {
-            $(".top").fadeOut(200);
-        }
-
-    });
-    // Back to top
-    $('a.top').click(function () {
-      $(document.body).animate({scrollTop: 0}, 800);
-      return false;
-    });
+       <!-- Create an anchor tag -->
+        <button class="top">Back to top</button>
+        改变 scrollTop 的值可以调整返回距离顶部的距离，而 animate 的第二个参数是执行返回动作需要的时间(单位：毫秒)。
+    
+       $(document).scroll(function () {
+            var top = $(document).scrollTop();
+            if ( top > 200) {
+                $(".top").fadeIn(200);
+            } else {
+                $(".top").fadeOut(200);
+            }
+        });
+        // Back to top
+        $('a.top').click(function () {
+          $(document.body).animate({scrollTop: 0}, 800);
+          return false;
+        });
     
 
 ___2. 预加载图片___
