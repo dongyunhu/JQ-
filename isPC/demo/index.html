@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 //移动端必备
+	 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	 <meta name="format-detection" content="telephone=no">
+	  <meta name="applicable-device" content="mobile">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="myproject/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="myproject/stylesheets/share.css">
+	<link rel="stylesheet" id="aa" type="text/css" href="css/red.css">
+	<script type="text/javascript">
+		function cssChange(){
+		    // var link = document.getElementsByTagName('link')[3];
+		    var link = document.getElementById('aa');
+		    //PC端应用的样式文件：style_red.css
+		    alert('当前应用样式文件是：'+link.getAttribute('href'));
+		    link.setAttribute('href','css/blue.css');
+		    //Mobile端应用样式文件：style_blue.css
+		    alert('即将应用样式文件是：'+link.getAttribute('href'));
+		}
+		//懒人建站http://www.51xuediannao.com/
+		if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+		   alert('手机端');
+		    cssChange(); 
+		}else{
+		   alert('pc端')
+		}
+		
+	</script>
+	<style type="text/css">
+		.diva{
+			display: flex;
+			width: 100%;
+			height: 500px;
+			border: 2px solid #f00;	
+			align-items: center;
+		}
+		a{
+			width: 100px;
+			height: 100px;
+			border: 1px solid green;
+		}
+		span{
+			flex: 1 1 auto;
+		}
+		.flex{
+
+			display: flex;
+			height: 200px;
+			border: 2px solid green;	
+			align-items: center;
+				/*align-items: stretch; 如果子元素没有设置高度会和父级一样高*/
+		}
+		.flex li{
+			flex: 1;
+			height: 100px;
+			background: #ddd;
+			margin: 0 5px; 
+
+		}
+		.flex li.width{
+			flex: none;
+			width: 100px;
+			/*order: -1; 负值向前方移动，正值向后order的作用就是改变子元素排列顺序*/
+			/*flex-basis:200px; 比同级元素多加200px*/
+			 /*align-self: auto | flex-start | flex-end | center | baseline | stretch; 与其他项目不一样的对齐方式*/
+		}
+		/*美化进度条*/
+		progress {  
+		    display: inline-block;  
+		    width: 160px;  
+		    height: 20px;  
+		    border: 1px solid #0064B4;    
+		    background-color:#e6e6e6;  
+		    color: #0064B4; /*IE10*/
+		}  
+		/*ie6-ie9*/
+		progress ie {  
+		    display:block;  
+		    height: 100%;  
+		    background: #0064B4;  
+		}  
+		progress::-moz-progress-bar { background: #0064B4; }  
+		progress::-webkit-progress-bar { background: #e6e6e6; }  
+		progress::-webkit-progress-value  { background: #0064B4; }
+	</style>
+</head>
+<body>
+	<ul class="flex">
+		<li>111</li>
+		<li>115551</li>
+		<li>1333</li>
+		<li class="width">4444</li>
+	</ul>
+		
+	
+	<div class="diva">
+		<a ></a>
+		<a ></a>
+		<span></span>
+		<a ></a>
+	</div>
+
+	<div class="momo">
+		asdf阿斯蒂芬安抚阿斯蒂芬霜打芳
+		<p class="momi ">
+			阿斯蒂芬撒地方
+		</p>
+	</div>
+
+	<table>
+		<tr>
+			<th>
+				sadfsadf
+			</th>
+		</tr>
+	
+		<tr>
+		<td>sadfsadf</td><td>sadfsadf</td>
+		</tr>
+		<tr>
+		<td>sadfsadf</td><td>sadfsadf</td>
+		</tr>
+		<tr>
+		<td>sadfsadf</td><td>sadfsadf</td>
+		</tr>
+	
+	</table>
+
+	<div class="test ">
+		<div class="share-sprite share-folder_blue2"></div>
+		<div class="share-sprite share-folder_blue3"></div>
+	</div>
+
+	<progress></progress>
+	<progress max="100" value="20"><ie style="width:20%;"></ie></progress>
+	<input type="range" id="trackBar" min="1" max="10" step="1" value="1" />
+</body>
+</html>
